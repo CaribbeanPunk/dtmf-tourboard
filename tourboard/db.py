@@ -62,6 +62,33 @@ def init_db(conn):
     )
     conn.commit()
 
+def ensure_snapshots_schema(conn: sqlite3.Connection) -> None:
+    """
+    Add missing columns to snapshots table to handle schema changes over time.
+    Safe to run on every startup.
+    """
+    cur = conn.execute("PRAGMA table_info(snapshots)")
+    existing = {row[1] for row in cur.fetchall()}  # row[1] = column name
+
+    desired = {
+        "scraped_at": "TEXT",
+        "reported_revenue_usd": "REAL",
+        "reported_tickets": "INTEGER",
+        "avg_revenue_usd": "REAL",
+        "avg_tickets": "INTEGER",
+        "avg_price_usd": "REAL",
+        "total_reports_text": "TEXT",
+        "source_url": "TEXT",
+    }
+
+    # Add any missing columns
+    for col, col_type in desired.items():
+        if col not in existing:
+            conn.execute(f"ALTER TABLE snapshots ADD COLUMN {col} {col_type};")
+
+    conn.commit()
+
+
 
 def upsert_events(conn: sqlite3.Connection, df: pd.DataFrame) -> None:
     df.to_sql("events", conn, if_exists="append", index=False)
