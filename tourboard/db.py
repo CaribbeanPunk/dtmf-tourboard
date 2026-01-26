@@ -57,6 +57,11 @@ def init_db(conn):
         );
         """
 
+    )
+
+    conn.commit()
+
+
 def ensure_snapshots_schema(conn: sqlite3.Connection) -> None:
     """
     Add missing columns to snapshots table to handle schema changes over time.
@@ -76,12 +81,12 @@ def ensure_snapshots_schema(conn: sqlite3.Connection) -> None:
         "source_url": "TEXT",
     }
 
-    # Add any missing columns
     for col, col_type in desired.items():
         if col not in existing:
             conn.execute(f"ALTER TABLE snapshots ADD COLUMN {col} {col_type};")
 
     conn.commit()
+
 
 
 
