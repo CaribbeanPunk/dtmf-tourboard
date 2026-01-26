@@ -155,6 +155,9 @@ st.markdown(
 
 conn = get_conn()
 init_db(conn)
+from tourboard.db import ensure_snapshots_schema
+ensure_snapshots_schema(conn)
+
 
 st.sidebar.markdown("### Controls")
 refresh = st.sidebar.button("🔄 Refresh from Touring Data", use_container_width=True)
