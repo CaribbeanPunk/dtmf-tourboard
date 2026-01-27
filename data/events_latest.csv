@@ -1,0 +1,22 @@
+region,date_range,start_date,end_date,artist,venue,city,country,gross_usd,tickets,capacity_pct,shows,source_url,scraped_at
+Latin America,"November 21-22, 2025",,,Bad Bunny,Estadio Olímpico,Santo Domingo,Dominican Republic,7915657.0,64175.0,100.0,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"December 5-6, 2025",,,Bad Bunny,Estadio Nacional,San José,Costa Rica,12428000.0,115485.0,100.0,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"December 10-21, 2025",,,Bad Bunny,Estadio GNP Seguros,Mexico City,Mexico,86693370.0,517736.0,100.0,8,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"January 9-11, 2026",,,Bad Bunny,Estadio Nacional,Santiago,Chile,,,,3,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"January 16-17, 2026",,,Bad Bunny,Estadio Nacional,Lima,Peru,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"January 23-25, 2026",,,Bad Bunny,Estadio Atanasio Girardot,Medellín,Colombia,,,,3,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"February 13-15, 2026",,,Bad Bunny,Estadio Monumental,Buenos Aires,Argentina,,,,3,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Latin America,"February 20-21, 2026",,,Bad Bunny,Allianz Parque,São Paulo,Brazil,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Oceania,"February 28-Mar. 1, 2026",,,Bad Bunny,ENGIE Stadium,Sydney,Australia,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"May 22-23, 2026",,,Bad Bunny,Estadi Olímpic,Barcelona,Spain,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"May 26-27, 2026",,,Bad Bunny,Estádio da Luz,Lisbon,Portugal,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"May 30-Jun. 15, 2026",,,Bad Bunny,Estadio Metropolitano,Madrid,Spain,,,,10,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"June 20-21, 2026",,,Bad Bunny,Merkur Spiel-Arena,Düsseldorf,Germany,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"June 23-24, 2026",,,Bad Bunny,GelreDome,Arnhem,Netherlands,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"June 27-28, 2026",,,Bad Bunny,Tottenham Hotspur Stadium,London,England,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"July 1, 2026",,,Bad Bunny,Orange Vélodrome,Marseille,France,,,,1,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"July 4-5, 2026",,,Bad Bunny,La Défense Arena,Paris,France,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"July 10-11, 2026",,,Bad Bunny,Strawberry Arena,Stockholm,Sweden,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"July 14, 2026",,,Bad Bunny,Stadion Narodowy,Warsaw,Poland,,,,1,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"July 17-18, 2026",,,Bad Bunny,Ippodrome Snai La Maura,Milan,Italy,,,,2,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
+Europe,"July 22, 2026",,,Bad Bunny,Stade Roi Baudouin,Brussels,Belgium,,,,1,https://touringdata.org/2025/06/19/bad-bunny-debi-tirar-mas-fotos-tour/,2026-01-27T02:32:34+00:00
