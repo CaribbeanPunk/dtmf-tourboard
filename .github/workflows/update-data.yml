@@ -27,8 +27,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run updater
+        env:
+          PYTHONPATH: .
         run: |
           python scripts/update_data.py
+
 
       - name: Commit and push data
         run: |
