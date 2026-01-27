@@ -175,6 +175,12 @@ events = pd.read_csv(EVENTS_CSV)
 snaps = pd.read_csv(SNAPS_CSV) if SNAPS_CSV.exists() else pd.DataFrame()
 
 
+for col in ["gross_usd", "tickets", "shows", "capacity_pct"]:
+    if col in events.columns:
+        events[col] = pd.to_numeric(events[col], errors="coerce")
+
+
+
 # Compute headline metrics from the latest events scrape (more reliable than header parsing)
 events_num = events.copy()
 
