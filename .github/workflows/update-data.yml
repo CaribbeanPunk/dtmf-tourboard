@@ -1,3 +1,4 @@
+
 name: Update tour data
 
 on:
@@ -36,4 +37,5 @@ jobs:
           git add data/events_latest.csv data/snapshots.csv
           git commit -m "Update tour data" || echo "No changes to commit"
           git push
+
 
