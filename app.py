@@ -572,6 +572,20 @@ with st.expander("🗓️ Complete Tour Dates", expanded=False):
     st.dataframe(view, use_container_width=True, hide_index=True)
 
 
+# --- Country rollup used by charts (roll) ---
+roll = (
+    events.dropna(subset=["country"])
+    .groupby(["country"], as_index=False)
+    .agg(
+        gross_usd=("gross_usd", "sum"),
+        tickets=("tickets", "sum"),
+        shows=("shows", "sum"),
+    )
+)
+
+# Avoid zeros becoming weird in charts
+roll.loc[roll["gross_usd"] == 0, "gross_usd"] = pd.NA
+roll.loc[roll["tickets"] == 0, "tickets"] = pd.NA
 
 
     
