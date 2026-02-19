@@ -623,6 +623,70 @@ fig_tix.update_traces(
 st.plotly_chart(fig_tix, use_container_width=True, config={"responsive": True})
 
 
+
+
+# --- Revenue per show by country (efficiency) ---
+
+rps_df = roll.dropna(subset=["gross_usd"]).copy()
+rps_df = rps_df[rps_df["gross_usd"] > 0]
+
+# Group to compute:
+# - reported shows count
+# - total reported gross
+# - revenue per show
+rps_agg = (
+    rps_df.groupby("country", as_index=False)
+    .agg(
+        reported_shows=("gross_usd", "count"),
+        reported_gross_usd=("gross_usd", "sum"),
+    )
+)
+
+rps_agg["revenue_per_show_usd"] = rps_agg["reported_gross_usd"] / rps_agg["reported_shows"]
+
+
+
+# Sort so the biggest is on top (like your other chart)
+rps_agg = rps_agg.sort_values("revenue_per_show_usd", ascending=True)
+
+# Labels like "$12M" but for per-show (still in millions)
+rps_agg["rps_M"] = (rps_agg["revenue_per_show_usd"] / 1_000_000).round(1)
+rps_agg["rps_label"] = "$" + rps_agg["rps_M"].astype(str) + "M"
+
+fig_rps = px.bar(
+    rps_agg,
+    x="revenue_per_show_usd",
+    y="country",
+    orientation="h",
+    title=f"Revenue per show by country",
+)
+
+fig_rps.update_layout(margin=dict(l=0, r=90, t=60, b=0))
+
+max_x = rps_agg["revenue_per_show_usd"].max()
+fig_rps.update_xaxes(range=[0, max_x * 1.15])
+
+fig_rps.update_traces(
+    text=rps_agg["rps_label"],
+    textposition="outside",
+    hovertemplate=(
+        "Revenue/show: $%{x:,.0f}"
+        "<br>Reported shows: %{customdata[0]}"
+        "<br>Total reported gross: $%{customdata[1]:,.0f}"
+        "<extra></extra>"
+    ),
+    customdata=rps_agg[["reported_shows", "reported_gross_usd"]].to_numpy(),
+    cliponaxis=False,
+)
+
+st.plotly_chart(fig_rps, use_container_width=True, config={"responsive": True})
+
+
+
+
+
+
+
 tix_df = roll.dropna(subset=["tickets"]).copy()
 tix_df = tix_df[tix_df["tickets"] > 0].sort_values("tickets", ascending=True)
 
@@ -681,15 +745,14 @@ city_roll = (
         )
     )
 
+
+
 city_roll["avg_price_usd"] = city_roll["gross_usd"] / city_roll["tickets"]
 city_roll["country_label"] = city_roll["country"]
 
-    # Optional: filter out tiny samples
-MIN_TICKETS = 20000
-city_roll = city_roll[city_roll["tickets"] >= MIN_TICKETS]
+
 
     
-
 fig_city_price = px.bar(
     city_roll,
     x="avg_price_usd",
@@ -698,6 +761,7 @@ fig_city_price = px.bar(
     title="Avg. Ticket Price By Country",
         
 )
+
 
 fig_city_price.update_layout(margin=dict(l=0, r=90, t=60, b=0))
 
@@ -713,6 +777,7 @@ fig_city_price.update_traces(
     hovertemplate="$%{x:,.2f}<extra></extra>",
     cliponaxis=False,
 )
+
 
 st.plotly_chart(fig_city_price, use_container_width=True,config={"responsive": True})
 
