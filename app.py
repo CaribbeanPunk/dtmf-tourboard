@@ -684,7 +684,7 @@ st.plotly_chart(fig_rps, use_container_width=True, config={"responsive": True})
 
 
 
-
+#Tickets sold by country
 
 
 tix_df = roll.dropna(subset=["tickets"]).copy()
