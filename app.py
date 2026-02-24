@@ -783,46 +783,27 @@ st.plotly_chart(fig_city_price, use_container_width=True, config={"responsive": 
 # ===============================
 # Top songs played (Setlist.fm)
 # ===============================
-st.subheader("Top songs played in the tour")
+st.subheader("🔥Songs played in the tour")
 
 songs_path = Path("data/songs_played.csv")
 if songs_path.exists():
     songs_df = pd.read_csv(songs_path)
-
-    # Ensure types
     songs_df["plays"] = pd.to_numeric(songs_df["plays"], errors="coerce").fillna(0).astype(int)
     songs_df["song"] = songs_df["song"].astype(str)
 
-    top_n = st.slider("Top N songs", 10, 60, 25, 5)
     q = st.text_input("Search song", "").strip().lower()
 
     view = songs_df.sort_values("plays", ascending=False)
     if q:
         view = view[view["song"].str.lower().str.contains(q, na=False)]
-    view = view.head(top_n)
 
-    plot_df = view.sort_values("plays", ascending=True)
-
-    fig_songs = px.bar(
-        plot_df,
-        x="plays",
-        y="song",
-        orientation="h",
-        title="Songs played (setlist.fm tour stats)",
-    )
-    fig_songs.update_layout(margin=dict(l=0, r=90, t=60, b=0))
-
-    max_x = plot_df["plays"].max() if len(plot_df) else 0
-    fig_songs.update_xaxes(range=[0, max_x * 1.15 if max_x else 1])
-
-    fig_songs.update_traces(
-        text=plot_df["plays"],
-        textposition="outside",
-        hovertemplate="%{y}: %{x} shows<extra></extra>",
-        cliponaxis=False,
+    st.dataframe(
+        view,
+        use_container_width=True,
+        height=520,  # scrollable
+        hide_index=True,
     )
 
-    st.plotly_chart(fig_songs, use_container_width=True, config={"responsive": True})
     st.caption("Source: setlist.fm tour statistics.")
 else:
     st.info("songs_played.csv not found. Run scripts/update_setlist_songs.py to generate it.")
