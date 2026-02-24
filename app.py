@@ -542,7 +542,7 @@ st.markdown("---")
 
     
 
-st.markdown("#### 🔎 Filter")
+st.markdown("#### 🔎 Filter- Tour Stops Table")
 
 region_opts = ["All"] + sorted([x for x in events["region"].dropna().unique()])
 region_choice = st.selectbox("Region", region_opts, index=0)
